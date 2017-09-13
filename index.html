@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+    <div id="search">
+        <input type="text" placeholder="Search for artists or albums" onfocus="this.placeholder = ''">
+
+        <div id="select">
+            <div class="show art">
+                <p>ARTISTS</p>
+            </div>
+
+            <div class="hide alb">
+                <p>ALBUMS</p>
+            </div>
+        </div>
+        
+        <img class="down-btn" src="arrowdown.png">
+        <button id="search"><p>SEARCH</p></button>
+    </div>
+    <div id="results"></div>
+    <div class="last"><p class="more">GET MORE</p></div>
+
+    <template id="artists">
+        {{#each artists}}
+        <div class="main">
+            <a href ="{{url}}">
+                <div id="img-container"><img id="photo" src="{{photo}}"></div>
+                <h3 id="name">{{name}}</h3>
+            </a>
+        </div>
+        {{/each}}
+    </template>
+
+    <template id="albums">
+        {{#each albums}}
+        <div class="main">
+            <a href ="{{url}}">
+                <div id="img-container"><img id="photo" src="{{photo}}"></div>
+                <h5 id="name">{{artist}}</h5>
+                <h4 id="name">{{name}}</h4>
+
+            </a>
+        </div>
+        {{/each}}
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
